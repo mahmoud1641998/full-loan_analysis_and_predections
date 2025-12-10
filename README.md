@@ -21,6 +21,7 @@ The solution follows a full end-to-end data engineering lifecycle:
 🔹 Ensuring consistent logic across both Train & Test sets (no leakage)
 
 This guarantees high data quality, strong analytical performance, and complete traceability from raw to gold.
+
 -----------------------------------------------------
 ### 🌊 Data Warehouse Architecture (ETL Pipeline)
 
@@ -61,7 +62,9 @@ Created aggregated customer-level metrics
 Built analytical tables optimized for BI & ML
 
 Generated the final ML-Ready Wide Table
+
 ---------------------------------------------
+
 ### 🛠️ Key Technical Achievements
 #### 1. Advanced T-SQL & Dimensional Modeling
 
@@ -96,6 +99,7 @@ Total_Bureau_Loans	Number of credit bureau loans
 Metric	Logic
 Loan_Term_Months	Calculated as Loan Amount ÷ Annuity Amount
 🚀 Final ML-Ready Wide Table
+
 ----------------------------------------------
 Because all Dimension tables are aggregated per customer, the final output view
 gold.Final_ML_Training_Data_View is built entirely from 1:1 joins, producing a stable, leakage-free, and ML-friendly wide table where:
