@@ -83,21 +83,37 @@ Enforced robust Primary Key & Foreign Key constraints to guarantee referential i
 Each Dimension table in the Gold layer represents customer-level aggregated behavior, computed from multi-row transactional sources:
 
 📌 Payment Behavior (installments_payments → Dim_Installments)
+
 Metric	Description
+
 Avg_Late_Days_Paid	Average lateness across all installment payments
+
 Max_Underpayment	Maximum recorded underpayment amount
+
 📌 Credit Card Behavior (credit_card_balance,POS_cash_balance → Dim_Credit_Card)
+
 Metric	Description
+
 CC_Avg_Utilization	Average percentage of credit limit used
+
 CC_Max_Balance	Maximum historical outstanding balance
+
 📌 Bureau Credit History (bureau → Dim_Bureau)
+
 Metric	Description
+
 Total_Active_Credit	Total active credit amount across all bureau loans
+
 Mean_Max_DPD	Mean of maximum days past due
+
 Total_Bureau_Loans	Number of credit bureau loans
+
 📌 Derived Application-Level Features (application → Fact_Loan)
+
 Metric	Logic
+
 Loan_Term_Months	Calculated as Loan Amount ÷ Annuity Amount
+
 🚀 Final ML-Ready Wide Table
 
 ----------------------------------------------
@@ -111,7 +127,9 @@ All historical behavior is pre-aggregated
 No exploding rows, no duplicates, no many-to-many issues
 
 Zero leakage (same logic applied to Train & Test)
+
 The curated dataset is exposed through gold.Final_ML_Training_Data_View, built via LEFT JOINs across all Dimensions and Fact tables.
+
 -----------------------------------------------
 Structured Sections
 🧾 Identifiers & Target
@@ -196,7 +214,11 @@ XGBoost
 🧩 Project Highlights
 
 ✔ Fully automated ETL pipeline
+
 ✔ Clean, validated, leakage-free training dataset
+
 ✔ Star Schema design ensures performance & maintainability
+
 ✔ High-value aggregated features boost model predictive power
+
 ✔ Production-ready data governance principles applied
